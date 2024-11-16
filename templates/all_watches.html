@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Wachtes</title>
+</head>
+<body>
+    {% if messages %}
+    {% for message in messages %}
+        <p>{{ message}}</p>
+    {% endfor%}    
+    {% endif %}
+
+    <h2><a href="{% url 'create_watch' %}">Create Watch Info</a></h2>
+
+    {% for watch in watches %}
+    <a href="{% url 'update_watch' watch.id %}">Update</a><br>
+    <a href="{% url 'delete_watch' watch.id %}">Delete</a><br>
+    <p>{{watch.id}}</p>
+    <p>{{watch.gender}}</p>
+    <p>{{watch.type}}</p>
+    {% endfor %}
+    <p>--------------------------</p>
+</body>
+</html>
